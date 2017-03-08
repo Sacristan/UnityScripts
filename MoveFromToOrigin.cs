@@ -4,21 +4,24 @@ using UnityEngine;
 
 namespace Sacristan.Utils
 {
-    public class MoveFromTo : MonoBehaviour
+    public class MoveFromToOrigin : MonoBehaviour
     {
-        [SerializeField]
-        private Vector3 fromOffset;
-
         [SerializeField]
         private float speed = 1f;
 
-        private IEnumerator Start()
+        private float t=0f;
+
+        protected Vector3 targetPos;
+        protected Vector3 fromPos;
+
+        protected virtual void Awake()
         {
-            float t = 0f;
+            targetPos = transform.localPosition;
+            fromPos = Vector3.zero;
+        }
 
-            Vector3 targetPos = transform.localPosition;
-            Vector3 fromPos = targetPos + fromOffset;
-
+        protected virtual IEnumerator Start()
+        {
             float step = Time.deltaTime * speed;
 
             do
