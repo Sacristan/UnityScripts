@@ -36,8 +36,8 @@ namespace Sacristan.Utils
 
         void OnGUI()
         {
-            GUI.Label(new Rect(Screen.width - 150, 0, 150, 20), "FPS: " + fps.ToString("f2"));
-            GUI.Label(new Rect(Screen.width - 150, 20, 150, 20), "Avg FPS: " + avgFps.ToString("f2"));
+            GUI.Label(new Rect(Screen.width - 72, 0, 150, 20), "FPS: " + fps.ToString("f2"));
+            GUI.Label(new Rect(Screen.width - 100, 25, 150, 20), "Avg FPS: " + avgFps.ToString("f2"));
         }
 
     }
