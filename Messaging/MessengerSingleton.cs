@@ -1,7 +1,5 @@
-
 using System;
 using System.Collections.Generic;
-using HoloToolkit.Unity;
 using UnityEngine;
 
 namespace Sacristan.Utils.Messaging
@@ -176,7 +174,7 @@ namespace Sacristan.Utils.Messaging
         #region AddListener
 
         //No parameters
-        public void AddListener<T>( MessengerCallback<T> handler)
+        public void AddListener<T>(MessengerCallback<T> handler)
         {
             var messageType = typeof(T);
             OnListenerAdding(messageType, handler);
