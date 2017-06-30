@@ -14,5 +14,13 @@ namespace Sacristan.Utils
                 SetLayerRecursively(child.gameObject, layer);
             }
         }
+
+        public static void EnableGameObjects(GameObject[] objects, bool flag)
+        {
+            for (int i = 0; i < objects.Length; i++)
+            {
+                objects[i].SetActive(flag);
+            }
+        }
     }
 }
