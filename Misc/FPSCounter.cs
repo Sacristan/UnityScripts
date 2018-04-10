@@ -4,6 +4,8 @@ namespace Sacristan.Utils
 {
     public class FPSCounter : MonoBehaviour
     {
+        [SerializeField] private Color color = Color.white;
+
         private const float UpdateInterval = 0.1f;
 
         #region Calc vars
@@ -36,6 +38,8 @@ namespace Sacristan.Utils
 
         void OnGUI()
         {
+            GUI.color = color;
+
             GUI.Label(new Rect(Screen.width - 72, 0, 150, 20), "FPS: " + fps.ToString("f2"));
             GUI.Label(new Rect(Screen.width - 100, 25, 150, 20), "Avg FPS: " + avgFps.ToString("f2"));
         }
