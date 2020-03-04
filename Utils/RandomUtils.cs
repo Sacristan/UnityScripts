@@ -9,7 +9,7 @@ namespace Sacristan.Utils
         {
             private int min;
             private int max;
-            private int count; 
+            private int count;
 
             private int Range { get { return max - min; } }
 
@@ -58,21 +58,25 @@ namespace Sacristan.Utils
             return result.ToArray();
         }
 
-        public static int[] GenerateNonRepeatingRandomIndexSequence(int count, int min=0, int max=100)
+        public static int[] GenerateNonRepeatingRandomIndexSequence(int count)
+        {
+            return GenerateNonRepeatingRandomIndexSequence(count, 0, count - 1);
+        }
+
+        public static int[] GenerateNonRepeatingRandomIndexSequence(int count, int min, int max)
         {
             System.Random random = new System.Random();
 
             int diff = max - min;
-            if (diff <= count) throw new RandomCountBiggerThanRange(count, min, max);
+            if (diff < count - 1) throw new RandomCountBiggerThanRange(count, min, max);
 
             List<int> result = new List<int>();
 
             while (result.Count < count)
             {
-                int generatedIndex = random.Next(min, max-1);
+                int generatedIndex = random.Next(min, max + 1);
                 if (!result.Contains(generatedIndex)) result.Add(generatedIndex);
             }
-
             return result.ToArray();
         }
     }
