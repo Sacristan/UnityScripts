@@ -13,6 +13,9 @@ namespace MinMax
         public float Min => min;
         public float Max => max;
 
+        public Float() { }
+        public Float(float min, float max) { this.min = min; this.max = max; }
+
         public float GetRandomValue()
         {
             return Random.Range(min, max);
@@ -27,6 +30,11 @@ namespace MinMax
         {
             return Mathf.InverseLerp(min, max, value);
         }
+
+        public bool IsWithinInterval(float value)
+        {
+            return value >= min && value <= max;
+        }
     }
 
     [System.Serializable]
@@ -36,6 +44,9 @@ namespace MinMax
         [SerializeField] private int max;
         public int Min => min;
         public int Max => max;
+
+        public Int() { }
+        public Int(int min, int max) { this.min = min; this.max = max; }
 
         public int GetRandomValue()
         {
@@ -50,6 +61,11 @@ namespace MinMax
         public float GetPercFromValue(int value)
         {
             return Mathf.InverseLerp(min, max, value);
+        }
+
+        public bool IsWithinInterval(int value)
+        {
+            return value >= min && value <= max;
         }
     }
 }
