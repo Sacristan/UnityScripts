@@ -57,6 +57,8 @@ public class MigrateSerializedData : EditorWindow
 
             }
         }
+
+        EditorUtility.SetDirty(scriptableObject);
     }
 
 }
